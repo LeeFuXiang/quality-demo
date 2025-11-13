@@ -44,7 +44,9 @@ jobs:
 
       run: npm ci || npm install 
 
- 
+    - name: Install Playwright Browsers
+
+      run: npx playwright install --with-deps
 
     - name: Run ESLint 
 
