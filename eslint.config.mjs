@@ -3,9 +3,13 @@ import globals from "globals";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
-  { files: ["**/*.{js,mjs,cjs}"], plugins: { js }, extends: ["js/recommended"], languageOptions: { globals: globals.browser,
-    ...globals.node,    // process, __dirname, require, etc.
-   },
+  { files: ["**/*.{js,mjs,cjs}"], plugins: { js }, extends: ["js/recommended"], 
+  languageOptions: { 
+    globals: {
+      ...globals.browser, // window, document, etc.
+      ...globals.node,    // process, __dirname, require, etc.
+    },
+  },
   rules: {
     eqeqeq: "error",
     semi: ["error", "always"],
